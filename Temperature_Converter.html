@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: bisque;
+        padding: 100px;
+    }
+    h1{
+        text-align: center;
+    }
+    #container{
+        text-align: center;
+        margin: 50px;
+    }
+    .input{
+        display: inline-block;
+    }
+    input{
+        overflow: auto;
+        text-align: center;
+        font-size: 32px;
+        width: 250px;
+        margin-left: 100px;
+    }
+    label{
+        margin-left: 50%;
+        margin-right: 50%;
+    }
+    
+</style>
+<body>
+    <h1>Temperature Converter</h1>
+    <section id="container">
+        <section id="celC" class="input">
+            <label for="cel" >&degC</label><br>
+            <input value="0" type="number" id="cel">
+        </section>
+        <section id="frhC" class="input">
+            <label for="fer">&deg;F</label><br>
+            <input value="32" type="number" id="fer">
+        </section>
+    </section>
+    <script>
+        let c = document.getElementById("cel");
+        let f = document.getElementById("fer");
+        c.addEventListener('input',function() {
+            // f.value=(((this.value)* 9/5) + 32);
+            if(Number.isInteger(((this.value)* 9/5) + 32)){
+                f.value =((this.value)* 9/5) + 32;
+            }
+            else{
+                let x = ((this.value)* 9/5) + 32;
+                f.value = x.toFixed(4);
+            }
+        });
+        f.addEventListener('input',function() {
+
+            // c.value = (5/9)*((this.value)-32);
+            if(Number.isInteger((5/9)*((this.value)-32))){
+                c.value =(5/9)*((this.value)-32);
+            }
+            else{
+                let x = (5/9)*((this.value)-32);
+                c.value=x.toFixed(4);
+                
+            }
+        });
+       
+    </script>
+</body>
+</html>
